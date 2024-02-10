@@ -25,7 +25,7 @@ class FirstPastThePostTest {
     }
     @org.junit.jupiter.api.Test
     fun when_zerovotes_throwsException() {
-        val (election, molly, bean) = this.createBaseElection()
+        val (election) = this.createBaseElection()
 
         assertFailsWith<Exception> {
             election.result()
