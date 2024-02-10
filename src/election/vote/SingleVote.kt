@@ -1,3 +1,3 @@
 package election.vote
 
-interface SingleVote : Vote {}
+interface SingleVote : Vote

@@ -1,3 +1,3 @@
 package election
 
-class Party(private val name: String) {}
+class Party(private val name: String)

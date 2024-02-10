@@ -9,7 +9,7 @@ fun main() {
     val system = FirstPastThePost()
     val election = Election(district, system)
     val compositeElection = CompositeElection(listOf(election))
-    compositeElection.getElection(district.name)?.castVote(SingleCandidateVote(candidate));
+    compositeElection.getElection(district.name)?.castVote(SingleCandidateVote(candidate))
     val result = compositeElection.result()
     println(result)
 }

@@ -1,3 +1,3 @@
 package election.winner
 
-interface Winner {}
+interface Winner

@@ -1,3 +1,3 @@
 package election.winner
 
-class MultiWinner : Winner {}
+class MultiWinner : Winner

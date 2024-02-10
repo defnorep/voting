@@ -1,3 +1,3 @@
 package election
 
-class Candidate(val name: String, val party: Party) {}
+class Candidate(val name: String, val party: Party)

@@ -1,3 +1,3 @@
 package election.vote
 
-interface RankedVote : Vote {}
+interface RankedVote : Vote
