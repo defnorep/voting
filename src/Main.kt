@@ -12,5 +12,5 @@ fun main() {
     compositeElection.getElection(district)?.castVote(SingleCandidateVote(candidate))
     compositeElection.getElection(district)?.castVote(SingleCandidateVote(candidate))
     compositeElection.getElection(district)?.castVote(SingleCandidateVote(candidate))
-    compositeElection.result().forEach { println("${it.first.name}: ${it.second.candidate.name}")}
+    compositeElection.result().forEach { println("${it.first.name}: ${it.second.candidate.name}") }
 }
