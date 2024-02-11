@@ -1,4 +1,8 @@
-import election.*
+import election.Candidate
+import election.CompositeElection
+import election.District
+import election.Election
+import election.Party
 import election.system.FirstPastThePost
 import election.vote.SingleCandidateVote
 
