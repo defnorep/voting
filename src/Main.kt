@@ -1,12 +1,12 @@
-import election.cli.formatter.SingleWinnerDistrictResultFormatter
-import election.core.Candidate
-import election.core.District
-import election.core.Election
-import election.core.Party
-import election.core.system.FirstPastThePost
-import election.core.system.InstantRunoff
-import election.core.vote.RankedCandidateVote
-import election.core.vote.SingleCandidateVote
+import voting.cli.formatter.SingleWinnerDistrictResultFormatter
+import voting.core.Candidate
+import voting.core.District
+import voting.core.Election
+import voting.core.Party
+import voting.core.system.FirstPastThePost
+import voting.core.system.InstantRunoff
+import voting.core.vote.RankedCandidateVote
+import voting.core.vote.SingleCandidateVote
 
 fun main() {
     val party = Party("Modernity")
