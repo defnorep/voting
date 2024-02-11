@@ -11,6 +11,8 @@ class InstantRunoff : Majority<RankedVote> {
     override fun result(): SingleWinner {
         return SingleWinner(
             Candidate("Not Implemented", Party("Not Implemented")),
+            0,
+            0,
         )
     }
 }

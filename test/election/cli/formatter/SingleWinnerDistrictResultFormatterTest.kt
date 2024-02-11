@@ -1,9 +1,8 @@
-package election.cli
+package election.cli.formatter
 
 import election.Candidate
 import election.District
 import election.Party
-import election.cli.formatter.SingleWinnerDistrictResultFormatter
 import election.winner.SingleWinner
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
@@ -14,9 +13,9 @@ class SingleWinnerDistrictResultFormatterTest {
         val party = Party("Modernity")
         val candidate = Candidate("Matthew Evans", party)
         val district = District("Hexadecimal City", setOf(candidate))
-        val winner = SingleWinner(candidate)
+        val winner = SingleWinner(candidate, 10, 10)
         val formatter = SingleWinnerDistrictResultFormatter(district, winner)
 
-        assertEquals("Hexadecimal City: Matthew Evans", formatter.format())
+        assertEquals("Hexadecimal City won by Matthew Evans with 10 votes (100% of vote).", formatter.format())
     }
 }

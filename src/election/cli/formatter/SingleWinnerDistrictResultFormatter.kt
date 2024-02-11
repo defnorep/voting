@@ -6,6 +6,12 @@ import election.winner.SingleWinner
 class SingleWinnerDistrictResultFormatter(private val district: District, private val winner: SingleWinner) :
     Formatter {
     override fun format(): String {
-        return String.format("%s won by %s", this.district.name, this.winner.candidate.name)
+        return String.format(
+            "%s won by %s with %s votes (%s%% of vote).",
+            this.district.name,
+            this.winner.candidate.name,
+            this.winner.votes,
+            (this.winner.votes / this.winner.totalVotes) * 100,
+        )
     }
 }

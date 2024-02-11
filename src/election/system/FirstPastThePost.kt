@@ -12,6 +12,6 @@ class FirstPastThePost : Plurality<SingleWinner, SingleCandidateVote> {
             throw Exception("Zero votes cast.")
         }
 
-        return SingleWinner(winner.value.first().candidate)
+        return SingleWinner(winner.value.first().candidate, winner.value.size, this.votes.size)
     }
 }
