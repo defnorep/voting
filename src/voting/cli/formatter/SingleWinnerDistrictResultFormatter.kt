@@ -12,7 +12,7 @@ class SingleWinnerDistrictResultFormatter(private val district: District, privat
             this.winner.candidate.name,
             this.winner.candidate.party.name,
             this.winner.votes,
-            (this.winner.votes / this.winner.totalVotes) * 100,
+            (this.winner.votes.toFloat() / this.winner.totalVotes.toFloat()) * 100,
         )
     }
 }

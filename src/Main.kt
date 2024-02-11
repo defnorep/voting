@@ -9,33 +9,40 @@ import voting.core.vote.RankedCandidateVote
 import voting.core.vote.SingleCandidateVote
 
 fun main() {
-    val party = Party("Modernity")
-    val candidate = Candidate("Matthew Evans", party)
-    val district = District("Hexadecimal City", setOf(candidate))
+    val molly = Candidate("Molly", Party("Dog Party"))
+    val bean = Candidate("Bean", Party("Cat Party"))
+    val district = District("Hexadecimal City", setOf(molly, bean))
 
-    fptp(candidate, district)
-    println("\r\n")
-    runoff(candidate, district)
+    fptp(setOf(molly, bean), district)
+    runoff(setOf(molly, bean), district)
 }
 
 fun fptp(
-    candidate: Candidate,
+    candidates: Set<Candidate>,
     district: District,
 ) {
     val system = FirstPastThePost()
     val election = Election(district, system)
-    election.castVote(SingleCandidateVote(candidate))
+    election.castVote(SingleCandidateVote(candidates.first()))
+    election.castVote(SingleCandidateVote(candidates.first()))
+    election.castVote(SingleCandidateVote(candidates.first()))
+    election.castVote(SingleCandidateVote(candidates.last()))
     println("First Past The Post Results:")
     println(SingleWinnerDistrictResultFormatter(election.district, election.result()).format())
+    println("\n")
 }
 
 fun runoff(
-    candidate: Candidate,
+    candidates: Set<Candidate>,
     district: District,
 ) {
     val system = InstantRunoff()
     val election = Election(district, system)
-    election.castVote(RankedCandidateVote(setOf(candidate)))
+    election.castVote(RankedCandidateVote(setOf(candidates.first(), candidates.last())))
+    election.castVote(RankedCandidateVote(setOf(candidates.first(), candidates.last())))
+    election.castVote(RankedCandidateVote(setOf(candidates.first(), candidates.last())))
+    election.castVote(RankedCandidateVote(setOf(candidates.last(), candidates.first())))
     println("Instant Runoff Results:")
     println(SingleWinnerDistrictResultFormatter(election.district, election.result()).format())
+    println("\n")
 }
