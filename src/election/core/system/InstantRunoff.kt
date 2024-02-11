@@ -5,15 +5,9 @@ import election.core.vote.RankedCandidateVote
 import election.core.winner.SingleWinner
 
 /**
- * Instant Runoff Procedure:
- * 1. Count voter's FIRST choices
- * 2. Does the Candidate have a majority?
- * 3. Yes, GOTO 7
- * 4. Eliminate last placed Candidate
- * 5. Distribute eliminated Candidate's ballots
- * 6. GOTO 1
- * 7. Winner found
- * */
+ * Assumptions:
+ * - All ballots must rank all candidates; no gaps are allowed. Gaps == crash. These rules change by election system.
+ */
 class InstantRunoff : Majority<RankedCandidateVote> {
     override val votes: MutableList<RankedCandidateVote> = mutableListOf()
 
