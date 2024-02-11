@@ -1,22 +1,20 @@
-package election.system
+package election.core.system
 
-import election.Candidate
-import election.District
-import election.Election
-import election.Party
-import election.vote.SingleCandidateVote
-import election.winner.SingleWinner
-import kotlin.test.assertFailsWith
+import election.core.Candidate
+import election.core.District
+import election.core.Election
+import election.core.Party
+import election.core.vote.SingleCandidateVote
+import election.core.winner.SingleWinner
 import org.junit.jupiter.api.Assertions.assertEquals
+import kotlin.test.assertFailsWith
 
 class FirstPastThePostTest {
-
-    private fun createBaseElection():
-        Triple<
-            Election<SingleWinner, SingleCandidateVote, FirstPastThePost>,
-            Candidate,
-            Candidate
-        > {
+    private fun createBaseElection(): Triple<
+        Election<SingleWinner, SingleCandidateVote, FirstPastThePost>,
+        Candidate,
+        Candidate,
+    > {
         val dogsParty = Party("Dogs")
         val catsParty = Party("Cats")
         val molly = Candidate("Molly", dogsParty)

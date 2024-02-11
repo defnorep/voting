@@ -1,6 +1,6 @@
-package election
+package election.core
 
-import election.system.FirstPastThePost
+import election.core.system.FirstPastThePost
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
@@ -28,6 +28,6 @@ class CompositeElectionTest {
         val compositeElection = CompositeElection(setOf(expectedElection))
         val actualElections = compositeElection.getElections()
 
-        assertEquals(listOf(Pair(district, expectedElection)), actualElections)
+        assertEquals(listOf(expectedElection), actualElections)
     }
 }

@@ -1,9 +1,9 @@
 package election.cli.formatter
 
-import election.Candidate
-import election.District
-import election.Party
-import election.winner.SingleWinner
+import election.core.Candidate
+import election.core.District
+import election.core.Party
+import election.core.winner.SingleWinner
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
