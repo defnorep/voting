@@ -12,9 +12,9 @@ fun main() {
     val district = District("Hexadecimal City", setOf(candidate))
     val system = FirstPastThePost()
     val election = Election(district, system)
-    val compositeElection = CompositeElection(listOf(election))
+    val compositeElection = CompositeElection(setOf(election))
     compositeElection.getElection(district)?.castVote(SingleCandidateVote(candidate))
     compositeElection.getElection(district)?.castVote(SingleCandidateVote(candidate))
     compositeElection.getElection(district)?.castVote(SingleCandidateVote(candidate))
-    compositeElection.result().forEach { println("${it.first.name}: ${it.second.candidate.name}") }
+    compositeElection.getElections().forEach { println("${it.first.name}: ${it.second.result().candidate.name}") }
 }
