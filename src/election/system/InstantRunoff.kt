@@ -9,6 +9,8 @@ class InstantRunoff : Majority<RankedVote> {
     override val votes: MutableList<RankedVote> = mutableListOf()
 
     override fun result(): SingleWinner {
-        return SingleWinner(Candidate("Not Implemented", Party("Not Implemented")))
+        return SingleWinner(
+            Candidate("Not Implemented", Party("Not Implemented")),
+        )
     }
 }

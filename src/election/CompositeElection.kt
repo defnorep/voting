@@ -13,7 +13,7 @@ class CompositeElection<W : Winner, V : Vote, E : ElectoralSystem<W, V>>(
         return this.electionsByDistrict[district]
     }
 
-    fun getElections(): List<Pair<District, Election<W, V, E>>> {
-        return this.electionsByDistrict.toList()
+    fun getElections(): List<Election<W, V, E>> {
+        return this.electionsByDistrict.values.toList()
     }
 }

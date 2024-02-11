@@ -3,6 +3,7 @@ import election.CompositeElection
 import election.District
 import election.Election
 import election.Party
+import election.cli.formatter.SingleWinnerDistrictResultFormatter
 import election.system.FirstPastThePost
 import election.vote.SingleCandidateVote
 
@@ -16,5 +17,5 @@ fun main() {
     compositeElection.getElection(district)?.castVote(SingleCandidateVote(candidate))
     compositeElection.getElection(district)?.castVote(SingleCandidateVote(candidate))
     compositeElection.getElection(district)?.castVote(SingleCandidateVote(candidate))
-    compositeElection.getElections().forEach { println("${it.first.name}: ${it.second.result().candidate.name}") }
+    compositeElection.getElections().forEach { println(SingleWinnerDistrictResultFormatter(it.district, it.result()).format()) }
 }
