@@ -16,6 +16,6 @@ class SingleWinnerDistrictResultFormatterTest {
         val winner = SingleWinner(candidate, 10, 10)
         val formatter = SingleWinnerDistrictResultFormatter(district, winner)
 
-        assertEquals("Hexadecimal City won by Matthew Evans (Modernity) with 10 votes (100% of vote).", formatter.format())
+        assertEquals("Hexadecimal City won by Matthew Evans (Modernity) with 10 votes (100.0% of vote).", formatter.format())
     }
 }
