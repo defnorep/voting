@@ -42,8 +42,9 @@ fun Application.configureTemplating() {
 
             call.respond(
                 MustacheContent(
-                    "fptp.html",
+                    "single-winner.html",
                     mapOf(
+                        "system" to "First Past the Post",
                         "district" to district.name,
                         "candidate" to result.candidate.name,
                         "party" to result.candidate.party.name,
@@ -55,9 +56,9 @@ fun Application.configureTemplating() {
         }
         get("/templates/runoff") {
             val willa = Candidate("Willa", Party("Dog Party"))
-            val merlin = Candidate("Aristotle", Party("Cat Party"))
-            val district = District("Octal Town", setOf(willa, merlin))
-            val candidates = setOf(merlin, willa)
+            val aristotle = Candidate("Aristotle", Party("Cat Party"))
+            val district = District("Octal Town", setOf(willa, aristotle))
+            val candidates = setOf(aristotle, willa)
             val system = InstantRunoff()
             val election = Election(district, system)
             election.castVote(RankedCandidateVote(setOf(candidates.first(), candidates.last())))
@@ -72,8 +73,9 @@ fun Application.configureTemplating() {
 
             call.respond(
                 MustacheContent(
-                    "runoff.html",
+                    "single-winner.html",
                     mapOf(
+                        "system" to "Instant Runoff",
                         "district" to district.name,
                         "candidate" to result.candidate.name,
                         "party" to result.candidate.party.name,
