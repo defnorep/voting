@@ -4,10 +4,10 @@
  * This generated file contains a sample Kotlin application project to get you started.
  * For more details on building Java & JVM projects, please refer to https://docs.gradle.org/8.5/userguide/building_java_projects.html in the Gradle documentation.
  */
-
 plugins {
     // Apply the org.jetbrains.kotlin.jvm Plugin to add support for Kotlin.
     alias(libs.plugins.jvm)
+    alias(libs.plugins.ktor)
 
     // Apply the application plugin to add support for building a CLI application in Java.
     application
@@ -27,8 +27,24 @@ dependencies {
 
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 
-    // This dependency is used by the application.
-    implementation(libs.guava)
+    // Fill this in with the version of kotlinx in use in your project
+    val kotlinxHtmlVersion = "0.10.1"
+
+    // include for JVM target
+    implementation("org.jetbrains.kotlinx:kotlinx-html-jvm:$kotlinxHtmlVersion")
+
+    // include for Common module
+    implementation("org.jetbrains.kotlinx:kotlinx-html:$kotlinxHtmlVersion")
+
+    implementation("io.ktor:ktor-server-core-jvm")
+    implementation("io.ktor:ktor-server-html-builder-jvm")
+    implementation("io.ktor:ktor-server-call-logging-jvm")
+    implementation("io.ktor:ktor-server-netty-jvm")
+    implementation("io.ktor:ktor-server-mustache")
+
+    implementation("ch.qos.logback:logback-classic:1.4.14")
+
+    testImplementation("io.ktor:ktor-server-tests-jvm")
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
@@ -41,6 +57,9 @@ java {
 application {
     // Define the main class for the application.
     mainClass.set("voting.AppKt")
+
+    val isDevelopment: Boolean = project.ext.has("development")
+    applicationDefaultJvmArgs = listOf("-Dio.ktor.development=$isDevelopment")
 }
 
 tasks.named<Test>("test") {

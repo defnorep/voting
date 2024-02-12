@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" class="sl-theme-dark">
+<head>
+    <meta charset="UTF-8">
+    <title>Voting</title>
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.13.1/cdn/themes/dark.css" />
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.13.1/cdn/shoelace-autoloader.js"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16x16.png">
+    <link rel="manifest" href="/static/site.webmanifest">
+    <style>
+        html {
+            font-family: var(--sl-font-sans)
+        }
+        sl-alert {
+            margin-bottom: var(--sl-spacing-large)
+        }
+    </style>
+</head>
+<body>
+<h1>Vote Alerts</h1>
+<div hx-get="/templates/fptp" hx-trigger="load"></div>
+<div hx-get="/templates/runoff" hx-trigger="load"></div>
+</body>
+</html>
