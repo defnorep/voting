@@ -27,15 +27,6 @@ dependencies {
 
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 
-    // Fill this in with the version of kotlinx in use in your project
-    val kotlinxHtmlVersion = "0.10.1"
-
-    // include for JVM target
-    implementation("org.jetbrains.kotlinx:kotlinx-html-jvm:$kotlinxHtmlVersion")
-
-    // include for Common module
-    implementation("org.jetbrains.kotlinx:kotlinx-html:$kotlinxHtmlVersion")
-
     implementation("io.ktor:ktor-server-core-jvm")
     implementation("io.ktor:ktor-server-html-builder-jvm")
     implementation("io.ktor:ktor-server-call-logging-jvm")
