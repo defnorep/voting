@@ -5,9 +5,8 @@
  * For more details on building Java & JVM projects, please refer to https://docs.gradle.org/8.5/userguide/building_java_projects.html in the Gradle documentation.
  */
 plugins {
-    // Apply the org.jetbrains.kotlin.jvm Plugin to add support for Kotlin.
-    kotlin("jvm") version "2.1.10"
-    alias(libs.plugins.ktor)
+    alias(libs.plugins.jvm) version "2.1.10"
+    alias(libs.plugins.ktor) version "3.1.0"
 
     // Apply the application plugin to add support for building a CLI application in Java.
     application
